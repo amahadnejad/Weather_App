@@ -130,3 +130,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Authentication Setting
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# Weather API Key
+OPENWEATHER_API_KEY = 'dfa9304fa50e2a22050965d341b0cf9b'  # This is a Test project! Nothing Serious ...

@@ -1,11 +1,11 @@
 import requests
 from django.shortcuts import render
+from django.conf import settings
 
 
 def get_weather(request):
-    city = request.GET.get('city', 'New York')  # Default city is New York
-    api_key = 'dfa9304fa50e2a22050965d341b0cf9b'  # Replace with your OpenWeatherMap API key
-    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric'
+    city = request.GET.get('city', 'New York')
+    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={settings.OPENWEATHER_API_KEY}&units=metric'
 
     try:
         response = requests.get(url)
