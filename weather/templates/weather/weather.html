@@ -6,31 +6,46 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card shadow-lg">
+            <div class="card shadow-lg border-0 rounded-4">
                 <div class="card-body text-center">
-                    <h1 class="mb-4">Weather App</h1>
-
-                    <!-- Search Form -->
+                    <h1 class="mb-4 text-success">Weather App</h1>
+                    <hr>
+                    <!-- جستجوی آب و هوا -->
                     <form method="get" class="d-flex mb-4">
-                        <input type="text" name="city" class="form-control me-2" placeholder="Enter city" value="{{ weather_data.city }}">
-                        <button type="submit" class="btn btn-primary">Get Weather</button>
+                        <input
+                            type="text"
+                            name="city"
+                            class="form-control me-2 rounded-pill px-3"
+                            placeholder="Enter city ..."
+                            value="{{ weather_data.city }}"
+                        >
+                        <button type="submit" class="btn btn-success px-4 rounded-pill">Search</button>
                     </form>
 
                     {% if weather_data.error %}
                         <div class="alert alert-danger">{{ weather_data.error }}</div>
                     {% else %}
-                        <h3 class="text-primary">{{ weather_data.city }}</h3>
-                        <h4 class="fw-bold">{{ weather_data.temperature }}°C</h4>
+                        <h3 class="text-primary fw-bold">{{ weather_data.city }}</h3>
+                        <h4 class="fw-bold display-5">{{ weather_data.temperature }}°C</h4>
                         <p class="text-muted">{{ weather_data.description|capfirst }}</p>
-                        <img src="http://openweathermap.org/img/wn/{{ weather_data.icon }}@2x.png" alt="Weather icon">
+                        <img
+                            src="http://openweathermap.org/img/wn/{{ weather_data.icon }}@2x.png"
+                            alt="Weather icon for {{ weather_data.city }}"
+                            class="my-3"
+                        >
                         <div class="mt-3">
-                            <p>Humidity: <strong>{{ weather_data.humidity }}%</strong></p>
-                            <p>Pressure: <strong>{{ weather_data.pressure }} hPa</strong></p>
+                            <p>🌡️ Humidity: <strong>{{ weather_data.humidity }}%</strong></p>
+                            <p>⚡ Pressure: <strong>{{ weather_data.pressure }} hPa</strong></p>
                         </div>
                     {% endif %}
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Footer -->
+<div class="text-center mt-4">
+    <h6>By <a href="https://github.com/amahadnejad" target="_blank" class="text-decoration-none fw-bold">amahadnejad</a></h6>
 </div>
 {% endblock %}
