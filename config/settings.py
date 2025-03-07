@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DJANGO_DEBUG_KEY")
 
 ALLOWED_HOSTS = []
 
@@ -132,4 +132,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # Weather API Key
-OPENWEATHER_API_KEY = 'dfa9304fa50e2a22050965d341b0cf9b'  # This is a Test project! Nothing Serious ...
+OPENWEATHER_API_KEY = config('OPENWEATHER_API_KEY')
